@@ -1,21 +1,29 @@
+// Produces a random number between given values
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// Reveals a random dinner from the curated list
 function revealDinners(){
-	var words = ['Steak Sandwich',
-	'Chicken Noodle Soup',
-	'Fried Chicken',
-	'Potato Heaven',
-	'Easy Pasta',
-	'Chilli',
-	];
-	var randInt = randomInteger(0, words.length - 1);
-	var item = words[randInt];
-	document.getElementById("dinnerList").innerHTML = item;
-}
+	// Curated list of dinners
+	var dinners = {
+	"Steak Sandwich":["Steak"," Bread"," Onion"," Pickles"],
+	"Chicken Noodle Soup":[" Chicken"," Noodles"," Soup" ],
+	"Fried Chicken":["Chicken"," Jalapenos"," Pickles"," Slaw"],
+	"Easy Pasta":["Packet tortolini "," Cherry tomatoes"],
+	"Chilli":[],
+	"'Lemongrass' Beef":["Chuck steak"," Yellow curry paste"," Snow peas"," Carrot"],
+	"Chicken Caesar":["Crumbed chicken"," Bacon"," Cos lettuce"," Parmesan cheese"," Caesar dressing"]
+	};
 
+	// Returns a random dinner from the curated list
+	var randomDinner = function (obj) {
+		var keys = Object.keys(obj);
+		var randomKeyInt = keys.length * Math.random() << 0;
+		var dinnerName = keys[randomKeyInt]; // This is the meal name
+		var dinnerIngredients = obj[keys[ randomKeyInt]]; // This is the corresponding ingredients
+		return(dinnerName + ': ' + dinnerIngredients);
+	};
 
-function revealMessage() {
-	        document.getElementById("hiddenMessage").style.display = 'block';
+	document.getElementById("dinnerList").innerHTML = randomDinner(dinners);
 }
