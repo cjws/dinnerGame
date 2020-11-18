@@ -22,10 +22,9 @@ function revealDinners(){
 		var randomKeyInt = keys.length * Math.random() << 0;
 		var dinnerName = keys[randomKeyInt]; // This is the meal name
 		var dinnerIngredients = obj[keys[ randomKeyInt]]; // This is the corresponding ingredients
-    var paragraph = document.getElementById("combinedIngredientsList");
-    document.getElementById("dinnerList").innerHTML =
-    var text = document.createTextNode(" "+dinnerIngredients);
-    paragraph.appendChild(text);
+		var paragraph = document.getElementById("combinedIngredientsList");
+          	var text = document.createTextNode(" "+dinnerIngredients);
+		paragraph.appendChild(text);
 		return(dinnerName + ': ' + dinnerIngredients);
 	};
 
