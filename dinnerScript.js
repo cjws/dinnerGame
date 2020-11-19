@@ -11,7 +11,7 @@ function revealDinners(){
 	"Chicken Noodle Soup":[" Chicken"," Noodles"," Soup" ],
 	"Fried Chicken":["Chicken"," Jalapenos"," Pickles"," Slaw"],
 	"Easy Pasta":["Packet tortolini "," Cherry tomatoes"],
-	"Chilli":[],
+	"Chilli":["Beef "," Brown Onion"," Red Capsicum",""],
 	"'Lemongrass' Beef":["Chuck steak"," Yellow curry paste"," Snow peas"," Carrot"],
 	"Chicken Caesar":["Crumbed chicken"," Bacon"," Cos lettuce"," Parmesan cheese"," Caesar dressing"]
 	};
@@ -23,7 +23,9 @@ function revealDinners(){
 		var dinnerName = keys[randomKeyInt]; // This is the meal name
 		var dinnerIngredients = obj[keys[ randomKeyInt]]; // This is the corresponding ingredients
 		var paragraph = document.getElementById("combinedIngredientsList");
-          	var text = document.createTextNode(" "+dinnerIngredients);
+    var br = document.createElement("br");
+    paragraph.appendChild(br);
+    var text = document.createTextNode("\n"+dinnerName + ': ' + dinnerIngredients);
 		paragraph.appendChild(text);
 		return(dinnerName + ': ' + dinnerIngredients);
 	};
